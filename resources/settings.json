@@ -1,0 +1,27 @@
+{
+  "smartObjects": [
+    {
+      "type": "Light",
+      "name": "Living Room Light",
+      "consumptionRate": 10
+    },
+    {
+      "type": "Heater",
+      "name": "Bedroom Heater",
+      "consumptionRate": 50
+    }
+  ],
+  "energySources": [
+    {
+      "type": "SolarPanel",
+      "name": "Roof Solar Panel",
+      "supplyRate": 100
+    },
+    {
+      "type": "Battery",
+      "name": "Backup Battery",
+      "supplyRate": 50,
+      "capacity": 200
+    }
+  ]
+}
