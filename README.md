@@ -1,4 +1,4 @@
-# NextGen Smart Home System
+# NextGen Smart Home System - GROUP 09
 
 DEMO VIDEO - https://drive.google.com/file/d/1GXEESzPcmqxv6IbD2CGFIzfI1R65Die2/view?usp=drive_link
 
