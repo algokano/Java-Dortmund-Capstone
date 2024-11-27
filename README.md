@@ -1,6 +1,7 @@
 # NextGen Smart Home System
 
 DEMO VIDEO - https://drive.google.com/file/d/1GXEESzPcmqxv6IbD2CGFIzfI1R65Die2/view?usp=drive_link
+PRESENTATION - https://docs.google.com/presentation/d/17FdkOfhVPDeb_f_qxdiZqn0EgTrDMXao/edit?usp=sharing&ouid=117661936818154380366&rtpof=true&sd=true
 
 The **NextGen Smart Home System** is a console-based application that allows users to manage smart devices and energy sources dynamically. The system simulates energy distribution to devices based on energy supply and demand, prioritizing efficient resource management.
 
