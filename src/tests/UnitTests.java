@@ -16,7 +16,7 @@ public class UnitTests {
         SmartObject light = new Light("Test Light", 20);
         light.turnOn();
         assertTrue(light.isOn(), "The light should be ON after calling turnOn.");
-        
+
         light.turnOff();
         assertFalse(light.isOn(), "The light should be OFF after calling turnOff.");
     }
@@ -25,7 +25,7 @@ public class UnitTests {
     public void testSmartObjectConsumption() {
         SmartObject heater = new Heater("Test Heater", 50);
         assertEquals(0, heater.getConsumptionRate(), "Heater should consume 0 energy when OFF.");
-        
+
         heater.turnOn();
         assertEquals(50, heater.getConsumptionRate(), "Heater should consume 50 energy when ON.");
     }
@@ -36,7 +36,7 @@ public class UnitTests {
         EnergySource solarPanel = new SolarPanel("Test Solar Panel", 100);
         solarPanel.activate();
         assertTrue(solarPanel.isActive(), "The solar panel should be active after calling activate.");
-        
+
         solarPanel.deactivate();
         assertFalse(solarPanel.isActive(), "The solar panel should be inactive after calling deactivate.");
     }
@@ -45,7 +45,7 @@ public class UnitTests {
     public void testEnergySourceSupplyRate() {
         EnergySource windTurbine = new WindTurbine("Test Wind Turbine", 50);
         assertEquals(0, windTurbine.getSupplyRate(), "Supply rate should be 0 when the wind turbine is inactive.");
-        
+
         windTurbine.activate();
         assertEquals(50, windTurbine.getSupplyRate(), "Supply rate should match the set rate when active.");
     }
@@ -53,24 +53,26 @@ public class UnitTests {
     // DeviceManager Tests
     @Test
     public void testDeviceManagerTurnAllOn() {
+        LogSystem logger = new LogSystem();
         SmartObject light = new Light("Test Light", 20);
         SmartObject heater = new Heater("Test Heater", 50);
-        
-        DeviceManager manager = new DeviceManager(List.of(light, heater));
+
+        DeviceManager manager = new DeviceManager(List.of(light, heater), logger);
         manager.turnAllOn();
-        
+
         assertTrue(light.isOn(), "The light should be ON.");
         assertTrue(heater.isOn(), "The heater should be ON.");
     }
 
     @Test
     public void testDeviceManagerTurnAllOff() {
+        LogSystem logger = new LogSystem();
         SmartObject light = new Light("Test Light", 20);
         SmartObject heater = new Heater("Test Heater", 50);
-        
-        DeviceManager manager = new DeviceManager(List.of(light, heater));
+
+        DeviceManager manager = new DeviceManager(List.of(light, heater), logger);
         manager.turnAllOff();
-        
+
         assertFalse(light.isOn(), "The light should be OFF.");
         assertFalse(heater.isOn(), "The heater should be OFF.");
     }
@@ -78,6 +80,7 @@ public class UnitTests {
     // EnergyManager Tests
     @Test
     public void testEnergyDistribution() {
+        LogSystem logger = new LogSystem();
         SmartObject light = new Light("Test Light", 20);
         SmartObject heater = new Heater("Test Heater", 50);
 
@@ -86,12 +89,36 @@ public class UnitTests {
 
         EnergyManager manager = new EnergyManager(
             List.of(light, heater),
-            List.of(solarPanel, windTurbine)
+            List.of(solarPanel, windTurbine),
+            logger
         );
 
         light.turnOn();
         heater.turnOn();
 
         assertDoesNotThrow(manager::distributeEnergy, "Energy distribution should succeed when total supply exceeds total consumption.");
+    }
+
+    @Test
+    public void testEnergyDistributionWithInsufficientSupply() {
+        LogSystem logger = new LogSystem();
+        SmartObject light = new Light("Test Light", 60);
+        SmartObject heater = new Heater("Test Heater", 50);
+
+        EnergySource solarPanel = new SolarPanel("Test Solar Panel", 50);
+
+        EnergyManager manager = new EnergyManager(
+            List.of(light, heater),
+            List.of(solarPanel),
+            logger
+        );
+
+        light.turnOn();
+        heater.turnOn();
+
+        manager.distributeEnergy();
+
+        assertFalse(light.isPowered(), "The light should not be powered due to insufficient energy.");
+        assertFalse(heater.isPowered(), "The heater should not be powered due to insufficient energy.");
     }
 }

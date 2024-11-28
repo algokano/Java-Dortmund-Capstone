@@ -1,7 +1,7 @@
 import energy.*;
 import management.*;
 import objects.*;
-import ui.ConsoleUI;
+import ui.SmartHomeSwingGUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,17 +29,25 @@ public class Main {
         energySources.add(windTurbine);
         energySources.add(battery);
 
-        // Managers
-        DeviceManager deviceManager = new DeviceManager(smartObjects);
-        EnergyManager energyManager = new EnergyManager(smartObjects, energySources);
-
         // Logger
         LogSystem logger = new LogSystem();
 
-        // Start Console UI
-        ConsoleUI consoleUI = new ConsoleUI(deviceManager, energyManager);
-        consoleUI.start();
+        // Managers with logger integration
+        DeviceManager deviceManager = new DeviceManager(smartObjects, logger); // Pass logger
+        EnergyManager energyManager = new EnergyManager(smartObjects, energySources, logger); // Pass logger
 
+        // Log initial state
+        logger.logEvent("Smart Home System initialized.");
+        logger.logEvent("Smart Objects: " + smartObjects.size());
+        logger.logEvent("Energy Sources: " + energySources.size());
+
+        // Start Swing GUI
+        SmartHomeSwingGUI swingUI = new SmartHomeSwingGUI(deviceManager, energyManager);
+        swingUI.start();
+
+        // Log simulation completion
         logger.logEvent("Simulation completed.");
+        logger.archiveLogFile(); // Archive logs at the end
+        logger.deleteOldLogs(); // Clean up old logs
     }
 }
