@@ -8,6 +8,8 @@ PRESENTATION - https://docs.google.com/presentation/d/17FdkOfhVPDeb_f_qxdiZqn0Eg
 
 The **NextGen Smart Home System** is a console-based application that allows users to manage smart devices and energy sources dynamically. The system simulates energy distribution to devices based on energy supply and demand, prioritizing efficient resource management.
 
+<img width="402" alt="Screenshot 2024-11-28 at 12 52 29" src="https://github.com/user-attachments/assets/63c4e490-3a90-42ed-8464-6a2f8f536c04">
+
 ## Features
 - **Dynamic Device Management**:
   - Add, remove, and control smart devices.
@@ -21,8 +23,6 @@ The **NextGen Smart Home System** is a console-based application that allows use
   - Prioritize devices during energy shortages.
 - **Interactive Console UI**:
   - User-friendly interface to manage the system.
-
-<img width="702" alt="Screenshot 2024-11-28 at 12 52 29" src="https://github.com/user-attachments/assets/63c4e490-3a90-42ed-8464-6a2f8f536c04">
 
 
 ## Project Structure
