@@ -22,6 +22,9 @@ The **NextGen Smart Home System** is a console-based application that allows use
 - **Interactive Console UI**:
   - User-friendly interface to manage the system.
 
+<img width="702" alt="Screenshot 2024-11-28 at 12 52 29" src="https://github.com/user-attachments/assets/63c4e490-3a90-42ed-8464-6a2f8f536c04">
+
+
 ## Project Structure
 ```plaintext
 NextGenSmartHome/
