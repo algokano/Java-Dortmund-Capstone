@@ -1,12 +1,12 @@
 # NextGen Smart Home System - GROUP 09
 
-DEMO VIDEO - https://drive.google.com/file/d/1GXEESzPcmqxv6IbD2CGFIzfI1R65Die2/view?usp=drive_link
-
-
+DEMO VIDEO with GUI - https://drive.google.com/file/d/1-7u-1H1Mu3iMveaU1AFqGuJDNxwnqYd_/view?usp=sharing
 
 PRESENTATION - https://docs.google.com/presentation/d/17FdkOfhVPDeb_f_qxdiZqn0EgTrDMXao/edit?usp=sharing&ouid=117661936818154380366&rtpof=true&sd=true
 
 The **NextGen Smart Home System** is a console-based application that allows users to manage smart devices and energy sources dynamically. The system simulates energy distribution to devices based on energy supply and demand, prioritizing efficient resource management.
+
+OLD DEMO VIDEO with CONSOLE UI - https://drive.google.com/file/d/1GXEESzPcmqxv6IbD2CGFIzfI1R65Die2/view?usp=drive_link
 
 <img width="402" alt="Screenshot 2024-11-28 at 12 52 29" src="https://github.com/user-attachments/assets/63c4e490-3a90-42ed-8464-6a2f8f536c04">
 
